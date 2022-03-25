@@ -18,17 +18,20 @@ namespace Datos.Entidades
 
         public decimal Total { get; set; }
 
+        public string NombreCliente { get; set; }
+
         public Pedidos()
         {
         }
 
-        public Pedidos(string codigoProducto, string descripcion, int cantidad, decimal precio, decimal total)
+        public Pedidos(string codigoProducto, string descripcion, int cantidad, decimal precio, decimal total, string nombreCliente)
         {
             CodigoProducto = codigoProducto;
             Descripcion = descripcion;
             Cantidad = cantidad;
             Precio = precio;
             Total = total;
+            NombreCliente = nombreCliente;
         }
     }
 }

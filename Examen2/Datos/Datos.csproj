@@ -84,6 +84,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accesos\PedidosAD.cs" />
     <Compile Include="Accesos\ProductoAD.cs" />
     <Compile Include="Accesos\UsuarioAD.cs" />
     <Compile Include="Entidades\Pedidos.cs" />

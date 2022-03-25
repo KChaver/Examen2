@@ -30,17 +30,19 @@
         {
             this.ProductoGroupBox = new System.Windows.Forms.GroupBox();
             this.PrecioProductoTextBox = new System.Windows.Forms.TextBox();
+            this.AgregarButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.CantidadTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.CodigoProductoTextBox = new System.Windows.Forms.TextBox();
             this.DescripcionProductoTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.CodigoProductoTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.PedidosDataGridView = new System.Windows.Forms.DataGridView();
-            this.AgregarButton = new System.Windows.Forms.Button();
             this.ComprobarButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.NombreClienteTextBox = new System.Windows.Forms.TextBox();
             this.ProductoGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PedidosDataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -57,7 +59,7 @@
             this.ProductoGroupBox.Controls.Add(this.label3);
             this.ProductoGroupBox.Enabled = false;
             this.ProductoGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProductoGroupBox.Location = new System.Drawing.Point(202, 27);
+            this.ProductoGroupBox.Location = new System.Drawing.Point(205, 58);
             this.ProductoGroupBox.Name = "ProductoGroupBox";
             this.ProductoGroupBox.Size = new System.Drawing.Size(595, 154);
             this.ProductoGroupBox.TabIndex = 5;
@@ -72,6 +74,17 @@
             this.PrecioProductoTextBox.ReadOnly = true;
             this.PrecioProductoTextBox.Size = new System.Drawing.Size(100, 21);
             this.PrecioProductoTextBox.TabIndex = 8;
+            // 
+            // AgregarButton
+            // 
+            this.AgregarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AgregarButton.Location = new System.Drawing.Point(158, 90);
+            this.AgregarButton.Name = "AgregarButton";
+            this.AgregarButton.Size = new System.Drawing.Size(229, 39);
+            this.AgregarButton.TabIndex = 7;
+            this.AgregarButton.Text = "Agregar Pedido";
+            this.AgregarButton.UseVisualStyleBackColor = true;
+            this.AgregarButton.Click += new System.EventHandler(this.AgregarButton_Click);
             // 
             // label1
             // 
@@ -102,15 +115,6 @@
             this.label5.TabIndex = 5;
             this.label5.Text = "Cantidad:";
             // 
-            // CodigoProductoTextBox
-            // 
-            this.CodigoProductoTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CodigoProductoTextBox.Location = new System.Drawing.Point(85, 27);
-            this.CodigoProductoTextBox.Name = "CodigoProductoTextBox";
-            this.CodigoProductoTextBox.Size = new System.Drawing.Size(85, 21);
-            this.CodigoProductoTextBox.TabIndex = 4;
-            this.CodigoProductoTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CodigoProductoTextBox_KeyPress);
-            // 
             // DescripcionProductoTextBox
             // 
             this.DescripcionProductoTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -130,11 +134,20 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Descripción:";
             // 
+            // CodigoProductoTextBox
+            // 
+            this.CodigoProductoTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CodigoProductoTextBox.Location = new System.Drawing.Point(78, 43);
+            this.CodigoProductoTextBox.Name = "CodigoProductoTextBox";
+            this.CodigoProductoTextBox.Size = new System.Drawing.Size(85, 21);
+            this.CodigoProductoTextBox.TabIndex = 4;
+            this.CodigoProductoTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CodigoProductoTextBox_KeyPress);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(32, 33);
+            this.label4.Location = new System.Drawing.Point(25, 49);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 15);
             this.label4.TabIndex = 0;
@@ -152,21 +165,10 @@
             this.PedidosDataGridView.Size = new System.Drawing.Size(745, 220);
             this.PedidosDataGridView.TabIndex = 6;
             // 
-            // AgregarButton
-            // 
-            this.AgregarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AgregarButton.Location = new System.Drawing.Point(158, 90);
-            this.AgregarButton.Name = "AgregarButton";
-            this.AgregarButton.Size = new System.Drawing.Size(229, 39);
-            this.AgregarButton.TabIndex = 7;
-            this.AgregarButton.Text = "Agregar Pedido";
-            this.AgregarButton.UseVisualStyleBackColor = true;
-            this.AgregarButton.Click += new System.EventHandler(this.AgregarButton_Click);
-            // 
             // ComprobarButton
             // 
             this.ComprobarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ComprobarButton.Location = new System.Drawing.Point(33, 57);
+            this.ComprobarButton.Location = new System.Drawing.Point(26, 73);
             this.ComprobarButton.Name = "ComprobarButton";
             this.ComprobarButton.Size = new System.Drawing.Size(137, 39);
             this.ComprobarButton.TabIndex = 9;
@@ -179,13 +181,33 @@
             this.groupBox1.Controls.Add(this.CodigoProductoTextBox);
             this.groupBox1.Controls.Add(this.ComprobarButton);
             this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Enabled = false;
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(1, 27);
+            this.groupBox1.Location = new System.Drawing.Point(4, 58);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(195, 114);
+            this.groupBox1.Size = new System.Drawing.Size(195, 154);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ingresar Codigo del producto";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(12, 18);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(123, 16);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Nombre del cliente:";
+            // 
+            // NombreClienteTextBox
+            // 
+            this.NombreClienteTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NombreClienteTextBox.Location = new System.Drawing.Point(141, 12);
+            this.NombreClienteTextBox.Name = "NombreClienteTextBox";
+            this.NombreClienteTextBox.Size = new System.Drawing.Size(194, 22);
+            this.NombreClienteTextBox.TabIndex = 11;
+            this.NombreClienteTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NombreClienteTextBox_KeyPress);
             // 
             // FrmPedidos
             // 
@@ -193,6 +215,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(801, 450);
+            this.Controls.Add(this.NombreClienteTextBox);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.PedidosDataGridView);
             this.Controls.Add(this.ProductoGroupBox);
@@ -205,6 +229,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -223,5 +248,7 @@
         private System.Windows.Forms.Button AgregarButton;
         private System.Windows.Forms.Button ComprobarButton;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox NombreClienteTextBox;
     }
 }

@@ -18,15 +18,22 @@ namespace Examen2
         {
             InitializeComponent();
         }
-        ProductoAD productoDA = new ProductoAD();
-        Producto producto;
+        PedidosAD pedidosDA = new PedidosAD();
         
+        
+        Producto producto;
+        ProductoAD productoAD = new ProductoAD();
 
-        List<Pedidos> PedidosLista = new List<Pedidos>();
 
         private void FrmPedidos_Load(object sender, EventArgs e)
         {
-            PedidosDataGridView.DataSource = PedidosLista;
+            ListarPedidos();
+
+        }
+
+        private void ListarPedidos()
+        {
+            PedidosDataGridView.DataSource = pedidosDA.ListarPedidos();
         }
 
         private void CodigoProductoTextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -36,7 +43,7 @@ namespace Examen2
             if (e.KeyChar == (char)Keys.Enter)
             {
                 producto = new Producto();
-                producto = productoDA.GetProductoPorCodigo(CodigoProductoTextBox.Text);
+                producto = productoAD.GetProductoPorCodigo(CodigoProductoTextBox.Text);
                 DescripcionProductoTextBox.Text = producto.Descripcion;
                 PrecioProductoTextBox.Text = producto.Precio.ToString();
                 CantidadTextBox.Focus();
@@ -63,16 +70,13 @@ namespace Examen2
 
 
                     Pedidos pedidos = new Pedidos();
+                    pedidos.NombreCliente = NombreClienteTextBox.Text;
                     pedidos.CodigoProducto = producto.Codigo;
                     pedidos.Descripcion = producto.Descripcion;
                     pedidos.Cantidad = Convert.ToInt32(CantidadTextBox.Text);
                     pedidos.Precio = producto.Precio;
                     pedidos.Total = producto.Precio * Convert.ToInt32(CantidadTextBox.Text);
 
-
-                    PedidosLista.Add(pedidos);
-                    PedidosDataGridView.DataSource = null;
-                    PedidosDataGridView.DataSource = PedidosLista;
                 }
 
             }
@@ -89,27 +93,44 @@ namespace Examen2
 
 
             Pedidos pedidos = new Pedidos();
+            pedidos.NombreCliente = NombreClienteTextBox.Text;
             pedidos.CodigoProducto = producto.Codigo;
             pedidos.Descripcion = producto.Descripcion;
             pedidos.Cantidad = Convert.ToInt32(CantidadTextBox.Text);
             pedidos.Precio = producto.Precio;
             pedidos.Total = producto.Precio * Convert.ToInt32(CantidadTextBox.Text);
 
-
-            PedidosLista.Add(pedidos);
-            PedidosDataGridView.DataSource = null;
-            PedidosDataGridView.DataSource = PedidosLista;
+            bool insertop = pedidosDA.InsertarPedidos(pedidos);
+            if (insertop)
+            {
+                
+                ListarPedidos();
+                MessageBox.Show("Pedido insertado");
+            }
         }
+        
 
         private void ComprobarButton_Click(object sender, EventArgs e)
         {
             producto = new Producto();
-            producto = productoDA.GetProductoPorCodigo(CodigoProductoTextBox.Text);
+            producto = productoAD.GetProductoPorCodigo(CodigoProductoTextBox.Text);
             DescripcionProductoTextBox.Text = producto.Descripcion;
             PrecioProductoTextBox.Text = producto.Precio.ToString();
             CantidadTextBox.Focus();
 
             ProductoGroupBox.Enabled = true;
+
+        }
+
+        private void NombreClienteTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(CantidadTextBox.Text))
+            {
+                MessageBox.Show("Debe Poner el nombre del cliente");
+                return;
+            }
+
+            groupBox1.Enabled = true;
 
         }
     }
